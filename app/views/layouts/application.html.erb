@@ -23,14 +23,14 @@
             <i class="fas fa-store"></i>
           <% end %>
         </li>
+        
+        <li class="menu-item"><%= link_to "ご利用ガイド", guide_path %></li>
 
         <li class="menu-item"><%= link_to "マイページ", customer_path(current_customer.id) %></li>
 
-        <li class="menu-item"><%= link_to "商品一覧", items_path %></li>
-
-        <li class="menu-item">カート</li>
-
         <li class="menu-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+        
+        <li class="menu-item"><%= link_to "カート", items_path %></li>
       </ul>
       </nav>
 
@@ -62,17 +62,14 @@
 
       <nav class="nav">
       <ul class="menu-group">
-        <li class="menu-item">
-          <%= link_to root_path do %>
-            <i class="fas fa-store"></i>
-          <% end %>
-        </li>
-
-        <li class="menu-item"><%= link_to "商品一覧", items_path %></li>
+        
+        <li class="menu-item"><%= link_to "ご利用ガイド", guide_path %></li>
 
         <li class="menu-item"><%= link_to "新規登録", new_customer_registration_path %></li>
 
         <li class="menu-item"><%= link_to "ログイン", new_customer_session_path %></li>
+        
+        <li class="menu-item"><%= link_to "カートを見る", items_path %></li>
 
       </ul>
       </nav>

@@ -13,6 +13,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 root to: 'public/homes#top'
+get  'homes/guide'  => "public/homes#guide", as: :guide
 
 scope module: :public do
     get '/customers/check' => 'customers#check'
