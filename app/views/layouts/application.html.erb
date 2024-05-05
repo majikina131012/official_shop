@@ -18,15 +18,10 @@
 
       <nav class="nav">
       <ul class="menu-group">
-        <li class="menu-item">
-          <%= link_to root_path do %>
-            <i class="fas fa-store"></i>
-          <% end %>
-        </li>
         
         <li class="menu-item"><%= link_to "ご利用ガイド", guide_path %></li>
 
-        <li class="menu-item"><%= link_to "マイページ", customer_path(current_customer.id) %></li>
+        <li class="menu-item"><%= link_to "マイページ", mypage_path %></li>
 
         <li class="menu-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
         

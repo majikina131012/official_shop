@@ -2,30 +2,33 @@
 
 <%= form_with model: @customer do |f| %>
 
-  <h1>姓</h1>
-  <%= f.text_field :last_name %>
+  <div class="field">
+    <%= f.label :name, "名前" %><br>
+    <%= f.text_field :name %>
+  </div>
   
-  <h1>名</h1>
-  <%= f.text_field :first_name %>
   
-  <h1>セイ</h1>
-  <%= f.text_field :last_name_kana %>
+  <div class="field">
+    <%= f.label :name_kana, "フリガナ" %><br>
+    <%= f.text_field :name_kana %>
+  </div>
   
-  <h1>メイ</h1>
-  <%= f.text_field :first_name_kana %>
+  <div class="field">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
   
-  <h1>メールアドレス</h1>
-  <%= f.text_field :email %>
+  <div class="field">
+    <%= f.label :郵便番号 %><br>
+    <%= f.text_field :postal_code %>
+  </div>
   
-  <h1>郵便番号</h1>
-  <%= f.text_field :postal_code %>
+  <div class="field">
+    <%= f.label :住所 %><br>
+    <%= f.text_field :address %>
+  </div>
   
-  <h1>住所</h1>
-  <%= f.text_field :address %>
-  
-  <h1>電話番号</h1>
-  <%= f.text_field :telephone_number %>
   <%= f.submit '保存' %>
-  
-  <%= link_to "退会", customers_check_path %>
 <% end %>
+
+<%= link_to "退会", customers_check_path %>

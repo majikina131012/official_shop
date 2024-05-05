@@ -13,20 +13,20 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 root to: 'public/homes#top'
-get  'homes/guide'  => "public/homes#guide", as: :guide
+get  'homes/guide'  => "public/homes#guide", as: 'guide'
 
 scope module: :public do
-    get '/customers/check' => 'customers#check'
-    patch '/customers/withdraw' => 'customers#withdraw'
-    resources :customers
-    resources :items
-  end
+  get 'customers/mypage' => 'customers#show', as: 'mypage'
+  get '/customers/check' => 'customers#check'
+  resources :customers, only: [:edit, :update, :destroy]
+  resources :items
+end
   
-  namespace :admin do
-    root to: 'homes#top'
-    resources :customers
-    resources :genres
-    resources :items
-  end
+namespace :admin do
+  root to: 'homes#top'
+  resources :customers
+  resources :genres
+  resources :items
+end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

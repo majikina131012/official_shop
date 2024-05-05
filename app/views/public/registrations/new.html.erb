@@ -4,45 +4,31 @@
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :姓 %><br>
-    <%= f.text_field :last_name %>
+    <%= f.label :name, "名前" %><br>
+    <%= f.text_field :name %>
   </div>
-  
+
+
   <div class="field">
-    <%= f.label :名 %><br>
-    <%= f.text_field :first_name %>
+    <%= f.label :name_kana, "名前（カナ）" %><br>
+    <%= f.text_field :name_kana %>
   </div>
-  
-  <div class="field">
-    <%= f.label :セイ %><br>
-    <%= f.text_field :last_name_kana %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :メイ %><br>
-    <%= f.text_field :first_name_kana %>
-  </div>
-  
+
   <div class="field">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-  
+
   <div class="field">
     <%= f.label :郵便番号 %><br>
     <%= f.text_field :postal_code %>
   </div>
-  
+
   <div class="field">
     <%= f.label :住所 %><br>
     <%= f.text_field :address %>
   </div>
-  
-  <div class="field">
-    <%= f.label :電話 %><br>
-    <%= f.text_field :telephone_number %>
-  </div>
-  
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
