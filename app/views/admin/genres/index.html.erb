@@ -4,12 +4,14 @@
   <thead>
     <tr>
       <th>ジャンル名</th>
+      <th><br></th>
     </tr>
   </thead>
 <% @genres.each do |genre| %>
   <tbody>
     <tr>
       <td><%= genre.name %></td>
+      <td><%= link_to "編集する", edit_admin_genre_path(genre.id) %></td>
     </tr>
   </tbody>
 <% end %>
