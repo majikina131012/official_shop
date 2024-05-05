@@ -25,7 +25,7 @@ end
 namespace :admin do
   root to: 'homes#top'
   resources :customers
-  resources :genres
+  resources :genres, only: [:index, :create, :edit, :update, :destroy]
   resources :items
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
