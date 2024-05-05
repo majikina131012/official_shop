@@ -19,14 +19,14 @@ scope module: :public do
   get 'customers/mypage' => 'customers#show', as: 'mypage'
   get '/customers/check' => 'customers#check'
   resources :customers, only: [:edit, :update, :destroy]
-  resources :items
+  resources :items, only:[:index, :show]
 end
   
 namespace :admin do
   root to: 'homes#top'
   resources :customers
   resources :genres, only: [:index, :create, :edit, :update, :destroy]
-  resources :items
+  resources :items, only: [:new, :index, :create, :edit, :update, :destroy, :show]
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
