@@ -7,7 +7,8 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :price_without_tax, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
-  enum payment_method: { in_stock: 0, only_a_few_left: 1, checking_stock: 2, sold_out: 3 }
+  
+  enum status: { in_stock: 0, only_a_few_left: 1, checking_stock: 2, sold_out: 3 }
   
   def get_item_image(width, height)
     unless item_image.attached?
