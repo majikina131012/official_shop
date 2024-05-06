@@ -20,9 +20,10 @@ scope module: :public do
   get '/customers/check' => 'customers#check'
   resources :customers, only: [:edit, :update, :destroy]
   resources :items, only:[:index, :show]
+  delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
   resources :cart_items, only:[:index, :create, :update, :destroy]
 end
-  
+
 namespace :admin do
   root to: 'homes#top'
   resources :customers

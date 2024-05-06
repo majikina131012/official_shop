@@ -30,3 +30,4 @@
 </table>
 
 合計金額 <%= sum %> 円
+<%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete , "data-confirm" => "カートを空にしますか？" , class: "btn btn-danger"%>
