@@ -5,7 +5,7 @@
     <tr>
       <th>グッズ画像</th>
       <th>グッズ名</th>
-      <th>>グッズ説明</th>
+      <th>グッズ説明</th>
       <th>カテゴリ</th>
       <th>税抜価格</th>
       <th>販売ステータス</th>
@@ -17,10 +17,10 @@
     <tr>
       <td><%= image_tag item.get_item_image(100,100) %></td>
       <td><%= item.name %></td>
-      <td><%= @item.description %></td>
-      <td><%= @item.genre.name %></td>
-      <td><%= @item.price_without_tax %></td>
-      <td><%= @item.status_i18n %></td>
+      <td><%= item.description %></td>
+      <td><%= item.genre.name %></td>
+      <td><%= item.price_without_tax %></td>
+      <td><%= item.status_i18n %></td>
       <td><%= link_to "編集する", edit_admin_item_path(item.id) %></td>
     </tr>
   </tbody>

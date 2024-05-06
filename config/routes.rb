@@ -20,6 +20,7 @@ scope module: :public do
   get '/customers/check' => 'customers#check'
   resources :customers, only: [:edit, :update, :destroy]
   resources :items, only:[:index, :show]
+  resources :cart_items, only:[:index, :create, :update, :destroy]
 end
   
 namespace :admin do

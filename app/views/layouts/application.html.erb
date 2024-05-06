@@ -12,7 +12,9 @@
 
   <body>
     <header>
-      <h1>ハリネズミ商店</h1>
+      <%= link_to root_path do %>
+        <h1>ハリネズミ商店</h1>
+      <% end %>
 
       <% if customer_signed_in? %>
 
@@ -34,13 +36,13 @@
       <nav class="nav">
       <ul class="menu-group">
 
-        <li class="menu-item"><%= link_to "商品一覧", admin_items_path %></li>
+        <li class="menu-item"><%= link_to "グッズ一覧", admin_items_path %></li>
 
         <li class="menu-item"><%= link_to "会員一覧", admin_customers_path %></li>
 
         <li class="menu-item">注文履歴一覧</li>
 
-        <li class="menu-item"><%= link_to "ジャンル一覧", admin_genres_path %></li>
+        <li class="menu-item"><%= link_to "カテゴリ一覧", admin_genres_path %></li>
 
         <li class="menu-item"><%= link_to "会員一覧", admin_customers_path %></li>
 
