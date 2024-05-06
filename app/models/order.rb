@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   has_many :order_details
   has_many :items, through: :order_details
 
-  validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
+  validates :postal_code, presence: true
   validates :address, presence: true
   validates :name, presence: true
   validates :postage, presence: true, :numericality => { :greater_than_or_equal_to => 0 }

@@ -22,6 +22,10 @@ scope module: :public do
   resources :items, only:[:index, :show]
   delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
   resources :cart_items, only:[:index, :create, :update, :destroy]
+  get '/orders/thanks' => 'orders#thanks'
+  post '/orders/confirm' => 'orders#confirm'
+  get 'orders/confirm' => 'orders#error'
+  resources :orders, only: [:new, :create, :index, :show]
 end
 
 namespace :admin do

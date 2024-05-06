@@ -1,0 +1,40 @@
+<%= form_with model: @order, url: orders_confirm_path, local: true do |f| %>
+
+  <table>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= current_customer.email %></td>
+    </tr>
+    <tr>
+      <th>氏名</th>
+      <td><%= current_customer.name %></td>
+    </tr>
+    <tr>
+      <th>フリガナ</th>
+      <td><%= current_customer.name_kana %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td>
+        〒<%= current_customer.postal_code %><br>
+        <%= current_customer.address %>
+      </td>
+    </tr>
+    <tr>
+      <th>お支払方法</th>
+      <td>
+        <%= f.label :payment_method, "クレジットカード" %>
+        <%= f.radio_button :payment_method, "credit_card", :checked => true %><br>
+        
+        <%= f.label :payment_method, "銀行振込" %>
+        <%= f.radio_button :payment_method, "transfer" %><br>
+        
+        <%= f.label :payment_method, "コンビニ払い" %>
+        <%= f.radio_button :payment_method, "convenience_store" %><br>
+      </td>
+    </tr>
+  </table>
+
+  <%= f.submit "確認画面へ進む" %>
+
+<% end %>
