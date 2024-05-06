@@ -18,7 +18,7 @@
   </div>
   
   <div class="field">
-    <%= f.label :genre_id, "ジャンル名" %><br>
+    <%= f.label :genre_id, "カテゴリ" %><br>
     <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
   </div>
   
@@ -29,13 +29,16 @@
   
   <div class="field">
     <%= f.label :status, "在庫あり" %>
-    <%= f.radio_button :status, 0, checked: true %><br>
+    <%= f.radio_button :status, "in_stock", checked: true %><br>
+    
     <%= f.label :status, "残りわずか" %>
-    <%= f.radio_button :status, 1 %><br>
+    <%= f.radio_button :status, "only_a_few_left" %><br>
+    
     <%= f.label :status, "在庫確認中" %>
-    <%= f.radio_button :status, 2 %><br>
+    <%= f.radio_button :status, "checking_stock" %><br>
+    
     <%= f.label :status, "売り切れ" %>
-    <%= f.radio_button :status, 3 %>
+    <%= f.radio_button :status, "sold_out" %>
   </div>
   
   <%= f.submit '登録' %>

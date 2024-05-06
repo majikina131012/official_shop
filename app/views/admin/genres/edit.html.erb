@@ -1,9 +1,9 @@
-<h1>ジャンル編集</h1>
+<h1>カテゴリ編集</h1>
 
 <%= form_with model: @genre, url: admin_genre_path(@genre.id) do |f| %>
 
   <div class="field">
-    <%= f.label :name, "ジャンル名" %><br>
+    <%= f.label :name, "カテゴリ" %><br>
     <%= f.text_field :name %>
   </div>
   

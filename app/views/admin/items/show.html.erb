@@ -4,7 +4,7 @@
       <th>グッズ画像</th>
       <th>グッズ名</th>
       <th>グッズ説明</th>
-      <th>ジャンル名</th>
+      <th>カテゴリ</th>
       <th>税抜価格</th>
       <th>販売ステータス</th>
     </tr>
@@ -16,9 +16,10 @@
       <td><%= @item.description %></td>
       <td><%= @item.genre.name %></td>
       <td><%= @item.price_without_tax %></td>
-      <td><%= @item.status %></td>
+      <td><%= @item.status_i18n %></td>
     </tr>
   </tbody>
 </table>
 
-<%= link_to "グッズ編集", edit_admin_item_path %>
+<%= link_to "グッズ編集", edit_admin_item_path(@item.id) %>
+<%= link_to "グッズ削除", admin_item_path(@item.id), method: :delete,  "data-confirm" => "本当に削除しますか？" %>
