@@ -18,7 +18,8 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @order.postage = 300
     @order.billing_amount = @order.postage + @cart_items.sum(&:subtotal)
-    if @order.save!
+    if @order.save
+      @order.create_order_details(current_customer)
       redirect_to orders_thanks_path
     else
       render :new

@@ -1,6 +1,7 @@
 <h1>public/homes/top</h1>
-<h1>グッズ一覧</h1>
-
+<%= link_to items_path do %>
+  <h1>グッズ一覧</h1>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -8,7 +9,7 @@
       <th>グッズ名</th>
       <th>グッズ説明</th>
       <th>カテゴリ</th>
-      <th>税抜価格</th>
+      <th>税抜価格(税込)</th>
       <th>販売ステータス</th>
       <th></th>
     </tr>
@@ -20,7 +21,7 @@
       <td><%= item.name %></td>
       <td><%= item.description %></td>
       <td><%= item.genre.name %></td>
-      <td><%= item.price_without_tax %></td>
+      <td><%= item.price_without_tax %>(<%= item.with_tax_price %>)</td>
       <td><%= item.status_i18n %></td>
       <td><%= link_to "詳細", item_path(item.id) %></td>
     </tr>

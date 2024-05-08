@@ -4,7 +4,7 @@
       <tr>
         <th>グッズ画像</th>
         <th>グッズ名</th>
-        <th>単価</th>
+        <th>単価(税抜)</th>
         <th>数量</th>
         <th>小計</th>
       </tr>
@@ -14,7 +14,7 @@
         <tr>
           <td><%= image_tag cart_item.item.get_item_image(100,100) %></td>
           <td><%= cart_item.item.name %></td>
-          <td><%= cart_item.item.price_without_tax %>円</td>
+          <td><%= cart_item.item.with_tax_price %>(<%= cart_item.item.price_without_tax %>)円</td>
           <td><%= cart_item.amount %></td>
           <td><%= cart_item.subtotal %>円</td>
         </tr>

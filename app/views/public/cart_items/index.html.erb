@@ -5,7 +5,7 @@
     <tr>
       <th>グッズ名</th>
       <th>数量</th>
-      <th>単価</th>
+      <th>単価(税抜)</th>
       <th>金額</th>
       <th></th>
     </tr>
@@ -20,7 +20,7 @@
             <%= f.submit "変更" %>
           <% end %>
       </td>
-      <td><%= cart_item.item.price_without_tax %>円</td>
+      <td><%= cart_item.item.with_tax_price %>(<%= cart_item.item.price_without_tax %>)</td>
       <td><%= cart_item.subtotal %></td>
       <td><%= link_to "削除", cart_item_path(cart_item.id), method: :delete, "data-confirm" => "商品を削除しますか？", class: "btn btn-danger"%></td>
     </tr>
