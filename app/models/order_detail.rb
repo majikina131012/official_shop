@@ -12,4 +12,8 @@ class OrderDetail < ApplicationRecord
       preparation: 1,
       finish: 2
     }
+    
+    def subtotal
+      purchase_price * amount
+    end
 end
