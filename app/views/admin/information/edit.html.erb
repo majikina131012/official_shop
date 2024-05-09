@@ -1,0 +1,13 @@
+<h1>情報編集</h1>
+
+<%= form_with model: @information, url: admin_information_path, method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :title, "カテゴリ" %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body, "内容" %><br>
+    <%= f.text_field :body %>
+  </div>
+  <%= f.submit '更新' %>
+<% end %>

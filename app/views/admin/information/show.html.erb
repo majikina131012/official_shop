@@ -1,0 +1,19 @@
+<h1>情報詳細</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @information.title %></td>
+      <td><%= @information.body %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "編集する", edit_admin_information_path %>
+<%= link_to "削除する", admin_information_path(@information.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

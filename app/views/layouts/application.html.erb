@@ -40,11 +40,13 @@
 
         <li class="menu-item"><%= link_to "会員一覧", admin_customers_path %></li>
 
-        <li class="menu-item">注文履歴一覧</li>
+        <li class="menu-item"><%= link_to "注文履歴一覧", admin_orders_path %></li>
 
         <li class="menu-item"><%= link_to "カテゴリ一覧", admin_genres_path %></li>
 
         <li class="menu-item"><%= link_to "会員一覧", admin_customers_path %></li>
+        
+        <li class="menu-item"><%= link_to "情報一覧", admin_information_index_path %></li>
 
         <li class="menu-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
       </ul>
