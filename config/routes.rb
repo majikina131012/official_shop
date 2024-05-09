@@ -30,9 +30,12 @@ end
 
 namespace :admin do
   root to: 'homes#top'
-  resources :customers
+  resources :customers, only: [:index, :show, :update]
   resources :genres, only: [:index, :create, :edit, :update, :destroy]
   resources :items, only: [:new, :index, :create, :edit, :update, :destroy, :show]
+  resources :orders, only: [:show, :update] do
+    resources :order_details, only: [:update]
+  end
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

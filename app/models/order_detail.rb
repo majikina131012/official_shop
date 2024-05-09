@@ -10,7 +10,8 @@ class OrderDetail < ApplicationRecord
     {
       not_ready: 0,
       preparation: 1,
-      finish: 2
+      finish: 2,
+      shipping_completed: 3
     }
     
     def subtotal
