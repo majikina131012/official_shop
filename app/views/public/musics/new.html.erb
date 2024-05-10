@@ -1,0 +1,13 @@
+<h1感想新規投稿</h1>
+
+<%= form_with model: @music, url: musics_path, method: :post do |f| %>
+  <div class="field">
+    <%= f.label :title, "曲名" %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body, "感想" %><br>
+    <%= f.text_field :body %>
+  </div>
+  <%= f.submit '投稿' %>
+<% end %>

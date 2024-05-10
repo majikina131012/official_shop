@@ -1,0 +1,18 @@
+<h1>感想編集</h1>
+
+<%= form_with model: @music, url: music_path(@music.id) do |f| %>
+
+  <div class="field">
+    <%= f.label :titel, "曲名" %><br>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :body, "感想" %><br>
+    <%= f.text_field :body %>
+  </div>
+  
+  <%= f.submit '更新' %>
+<% end %>
+<%= link_to "一覧へ戻る", musics_path %>
+<%= link_to "削除", music_path(@music.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

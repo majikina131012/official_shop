@@ -23,6 +23,7 @@ scope module: :public do
   get 'orders/confirm' => 'orders#error'
   resources :orders, only: [:new, :create, :index, :show]
   resources :information, only: [:index, :show]
+  resources :musics, only: [:new, :create, :index, :show, :edit, :update, :destroy]
 end
 
 namespace :admin do

@@ -1,0 +1,21 @@
+<h1>感想一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>曲名</th>
+      <th>感想</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <% @musics.each do |music| %>
+  <tbody>
+    <tr>
+      <td><%= music.title %></td>
+      <td><%= music.body %></td>
+      <td><%= link_to "編集", edit_music_path(music.id) %></td>
+      <td><%= link_to "削除", music_path(music.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
