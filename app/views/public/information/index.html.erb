@@ -1,0 +1,9 @@
+<h1>情報一覧</h1>
+
+<table>
+  <% @informations.each do |information| %>
+    <tr><th>投稿日時</th><td><%= l information.created_at %></td></tr>
+    <tr><th>タイトル</th><td><%= link_to information.title, information_path(information.id) %></td></tr>
+    <tr><th>内容</th><td><%= information.body %></td></tr>
+  <% end %>
+</table>

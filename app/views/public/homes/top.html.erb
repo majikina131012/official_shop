@@ -2,11 +2,19 @@
 <h2>情報</h2>
 <table>
   <% @informations.each do |information| %>
-    <tr><th><%= information.title %></th><td><%= information.body %></td></tr>
+    <tr>
+      <th>
+      <%= link_to information_path(information.id) do %>
+        <%= information.title %>
+      <% end %>
+      <td><%= information.body %></td>
+      </th>
+    </tr>
   <% end %>
 </table>
+<%= link_to "情報一覧", information_index_path %>
 <%= link_to items_path do %>
-  <h1>グッズ一覧</h1>
+  <h2>グッズ一覧</h2>
 <% end %>
 <table>
   <thead>
@@ -29,7 +37,9 @@
       <td><%= item.genre.name %></td>
       <td><%= item.price_without_tax %>(<%= item.with_tax_price %>)</td>
       <td><%= item.status_i18n %></td>
-      <td><%= link_to "詳細", item_path(item.id) %></td>
+      <% if customer_signed_in? && item.status != 'sold_out' %>
+        <td><%= link_to "詳細", item_path(item.id) %></td>
+      <% end %>
     </tr>
   </tbody>
   <% end %>

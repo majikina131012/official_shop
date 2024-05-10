@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  # 顧客用
-# URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
 
-# 管理者用
-# URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -26,6 +22,7 @@ scope module: :public do
   post '/orders/confirm' => 'orders#confirm'
   get 'orders/confirm' => 'orders#error'
   resources :orders, only: [:new, :create, :index, :show]
+  resources :information, only: [:index, :show]
 end
 
 namespace :admin do

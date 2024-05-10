@@ -1,4 +1,5 @@
 class Admin::InformationController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @informations = Information.all
