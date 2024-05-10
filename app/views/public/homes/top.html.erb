@@ -1,4 +1,10 @@
 <h1>public/homes/top</h1>
+<h2>情報</h2>
+<table>
+  <% @informations.each do |information| %>
+    <tr><th><%= information.title %></th><td><%= information.body %></td></tr>
+  <% end %>
+</table>
 <%= link_to items_path do %>
   <h1>グッズ一覧</h1>
 <% end %>
