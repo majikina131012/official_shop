@@ -1,1 +1,26 @@
-<h1>商品一覧</h1>
+<h1>グッズ一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>グッズ画像</th>
+      <th>グッズ名</th>
+      <th>グッズ説明</th>
+      <th>カテゴリ</th>
+      <th>税抜価格(税込)</th>
+      <th>販売ステータス</th>
+    </tr>
+  </thead>
+  <% @items.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= image_tag item.get_item_image(100,100) %></td>
+      <td><%= item.name %></td>
+      <td><%= item.description %></td>
+      <td><%= item.genre.name %></td>
+      <td><%= item.price_without_tax %>(<%= item.with_tax_price %>)</td>
+      <td><%= item.status_i18n %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

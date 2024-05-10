@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>グッズ画像</th>
+      <th>グッズ名</th>
+      <th>グッズ説明</th>
+      <th>カテゴリ</th>
+      <th>税抜価格</th>
+      <th>販売ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= image_tag @item.get_item_image(100,100) %></td>
+      <td><%= @item.name %></td>
+      <td><%= @item.description %></td>
+      <td><%= @item.genre.name %></td>
+      <td><%= @item.price_without_tax %></td>
+      <td><%= @item.status_i18n %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= form_with model: @cart_item, url: cart_items_path, method: :post, local:true do |f| %>
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <%= f.hidden_field :customer_id, :value => current_customer.id %>
+  <%= f.select :amount, options_for_select([1,2,3,4,5,6,7,8,9,10], selected: 1), {include_blank: '個数選択'}, required: true %>
+  <%= f.submit 'カートに入れる' ,class: 'btn btn-success btn-sm'%>
+<% end %>

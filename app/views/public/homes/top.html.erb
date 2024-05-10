@@ -1,1 +1,46 @@
 <h1>public/homes/top</h1>
+<h2>情報</h2>
+<table>
+  <% @informations.each do |information| %>
+    <tr>
+      <th>
+      <%= link_to information_path(information.id) do %>
+        <%= information.title %>
+      <% end %>
+      <td><%= information.body %></td>
+      </th>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "情報一覧", information_index_path %>
+<%= link_to items_path do %>
+  <h2>グッズ一覧</h2>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>グッズ画像</th>
+      <th>グッズ名</th>
+      <th>グッズ説明</th>
+      <th>カテゴリ</th>
+      <th>税抜価格(税込)</th>
+      <th>販売ステータス</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @items.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= image_tag item.get_item_image(100,100) %></td>
+      <td><%= item.name %></td>
+      <td><%= item.description %></td>
+      <td><%= item.genre.name %></td>
+      <td><%= item.price_without_tax %>(<%= item.with_tax_price %>)</td>
+      <td><%= item.status_i18n %></td>
+      <% if customer_signed_in? && item.status != 'sold_out' %>
+        <td><%= link_to "詳細", item_path(item.id) %></td>
+      <% end %>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

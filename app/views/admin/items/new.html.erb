@@ -1,0 +1,45 @@
+<h1>グッズ登録</h1>
+
+<%= form_with model: @item, url: admin_items_path do |f| %>
+
+  <div class="field">
+    <%= f.label :item_image, "グッズ画像" %><br>
+    <%= f.file_field :item_image, accept: "image/*" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :name, "グッズ名" %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description, "グッズ説明" %><br>
+    <%= f.text_field :description %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :genre_id, "カテゴリ" %><br>
+    <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :price_without_tax, "税抜価格" %><br>
+    <%= f.text_field :price_without_tax %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :status, "在庫あり" %>
+    <%= f.radio_button :status, "in_stock", checked: true %><br>
+    
+    <%= f.label :status, "残りわずか" %>
+    <%= f.radio_button :status, "only_a_few_left" %><br>
+    
+    <%= f.label :status, "在庫確認中" %>
+    <%= f.radio_button :status, "checking_stock" %><br>
+    
+    <%= f.label :status, "売り切れ" %>
+    <%= f.radio_button :status, "sold_out" %>
+  </div>
+  
+  <%= f.submit '登録' %>
+<% end %>

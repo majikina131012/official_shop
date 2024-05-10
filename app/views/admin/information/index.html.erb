@@ -1,0 +1,38 @@
+<h1>情報一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <% @informations.each do |information| %>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to admin_information_path(information.id) do %>
+          <%= information.title %>
+        <% end %>
+      </td>
+      <td><%= information.body %></td>
+      <td><%= link_to "編集", edit_admin_information_path(information.id) %></td>
+      <td><%= link_to "削除する", admin_information_path(information.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+
+<h1>情報登録</h1>
+<%= form_with model: @information, url: admin_information_index_path, method: :post do |f| %>
+  <div class="field">
+    <%= f.label :title, "タイトル" %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body, "内容" %><br>
+    <%= f.text_field :body %>
+  </div>
+  <%= f.submit '登録' %>
+<% end %>
