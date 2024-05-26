@@ -1,4 +1,12 @@
 <h1>感想編集</h1>
+  <% if @music.errors.any? %>
+    <%= @music.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @music.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
 <%= form_with model: @music, url: music_path(@music.id) do |f| %>
 

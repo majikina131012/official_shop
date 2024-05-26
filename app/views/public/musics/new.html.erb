@@ -1,5 +1,12 @@
-<h1感想新規投稿</h1>
-
+<h1>感想新規投稿</h1>
+  <% if @music.errors.any? %>
+    <%= @music.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @music.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 <%= form_with model: @music, url: musics_path, method: :post do |f| %>
   <div class="field">
     <%= f.label :title, "曲名" %><br>

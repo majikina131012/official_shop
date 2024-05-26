@@ -7,7 +7,8 @@ class Public::MusicsController < ApplicationController
   def create
     @music = Music.new(music_params)
     @music.customer_id = current_customer.id
-    if @music.save!
+    if @music.save
+      flash[:notice] = "投稿に成功しました"
       redirect_to music_path(@music.id)
     else
       render :new
@@ -29,6 +30,7 @@ class Public::MusicsController < ApplicationController
   def update
     @music = Music.find(params[:id])
     if @music.update(music_params)
+      flash[:notice] = "更新に成功しました"
       redirect_to music_path(@music.id)
     else
       render :edit
@@ -38,6 +40,7 @@ class Public::MusicsController < ApplicationController
   def destroy
     music = Music.find(params[:id])
     music.destroy
+    flash[:notice] = "投稿を削除しました"
     redirect_to musics_path
   end
 
