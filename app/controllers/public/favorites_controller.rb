@@ -1,4 +1,6 @@
 class Public::FavoritesController < ApplicationController
+  before_action :authenticate_customer!
+  
   def create
     @music = Music.find(params[:music_id])
     favorite = current_customer.favorites.new(music_id: @music.id)

@@ -19,8 +19,10 @@
       <td id="favorite_buttons_<%= music.id %>" >
         <%= render 'public/favorites/btn', music: music %>
       </td>
-      <td><%= link_to "編集", edit_music_path(music.id) %></td>
-      <td><%= link_to "削除", music_path(music.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      <% if music.customer_id == current_customer.id %>
+        <td><%= link_to "編集", edit_music_path(music.id) %></td>
+        <td><%= link_to "削除", music_path(music.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      <% end %>
     </tr>
   </tbody>
   <% end %>

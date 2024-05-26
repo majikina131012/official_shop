@@ -1,4 +1,5 @@
 class Public::MusicsController < ApplicationController
+  before_action :authenticate_customer!
 
   def new
     @music = Music.new
@@ -49,5 +50,6 @@ class Public::MusicsController < ApplicationController
   def music_params
     params.require(:music).permit(:title, :body)
   end
+  
 
 end
