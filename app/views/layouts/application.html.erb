@@ -11,69 +11,38 @@
   </head>
 
   <body>
-    <header>
-      <%= link_to root_path do %>
-        <h1>ハリネズミ商店</h1>
-      <% end %>
+    <header class="header">
+      <div class="header-container">
+        <%= link_to root_path, class: "logo" do %>
+          <h1>ハリネズミ商店</h1>
+        <% end %>
 
-      <% if customer_signed_in? %>
-
-      <nav class="nav">
-      <ul class="menu-group">
-
-        <li class="menu-item"><%= link_to "ご利用ガイド", guide_path %></li>
-
-        <li class="menu-item"><%= link_to "マイページ", mypage_path %></li>
-
-        <li class="menu-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-
-        <li class="menu-item"><%= link_to "カート", cart_items_path %></li>
-        
-        <li class="menu-item"><%= link_to "感想一覧", musics_path %></li>
-        
-        <li class="menu-item"><%= link_to "感想投稿", new_music_path %></li>
-      </ul>
-      </nav>
-
-      <% elsif admin_signed_in? %>
-
-      <nav class="nav">
-      <ul class="menu-group">
-
-        <li class="menu-item"><%= link_to "グッズ一覧", admin_items_path %></li>
-
-        <li class="menu-item"><%= link_to "会員一覧", admin_customers_path %></li>
-
-        <li class="menu-item"><%= link_to "注文履歴一覧", admin_orders_path %></li>
-
-        <li class="menu-item"><%= link_to "カテゴリ一覧", admin_genres_path %></li>
-
-        <li class="menu-item"><%= link_to "会員一覧", admin_customers_path %></li>
-
-        <li class="menu-item"><%= link_to "情報一覧", admin_information_index_path %></li>
-
-        <li class="menu-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-      </ul>
-      </nav>
-
-      <% else %>
-
-      <nav class="nav">
-      <ul class="menu-group">
-
-        <li class="menu-item"><%= link_to "ご利用ガイド", guide_path %></li>
-
-        <li class="menu-item"><%= link_to "新規登録", new_customer_registration_path %></li>
-
-        <li class="menu-item"><%= link_to "ログイン", new_customer_session_path %></li>
-
-        <li class="menu-item"><%= link_to "カートを見る", items_path %></li>
-
-      </ul>
-      </nav>
-
-      <% end %>
-
+        <nav class="nav">
+          <ul class="menu-group">
+            <% if customer_signed_in? %>
+              <li class="menu-item"><%= link_to "ご利用ガイド", guide_path %></li>
+              <li class="menu-item"><%= link_to "マイページ", mypage_path %></li>
+              <li class="menu-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+              <li class="menu-item"><%= link_to "カート", cart_items_path %></li>
+              <li class="menu-item"><%= link_to "感想一覧", musics_path %></li>
+              <li class="menu-item"><%= link_to "感想投稿", new_music_path %></li>
+            <% elsif admin_signed_in? %>
+              <li class="menu-item"><%= link_to "グッズ一覧", admin_items_path %></li>
+              <li class="menu-item"><%= link_to "会員一覧", admin_customers_path %></li>
+              <li class="menu-item"><%= link_to "注文履歴一覧", admin_orders_path %></li>
+              <li class="menu-item"><%= link_to "カテゴリ一覧", admin_genres_path %></li>
+              <li class="menu-item"><%= link_to "会員一覧", admin_customers_path %></li>
+              <li class="menu-item"><%= link_to "情報一覧", admin_information_index_path %></li>
+              <li class="menu-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <% else %>
+              <li class="menu-item"><%= link_to "ご利用ガイド", guide_path %></li>
+              <li class="menu-item"><%= link_to "新規登録", new_customer_registration_path %></li>
+              <li class="menu-item"><%= link_to "ログイン", new_customer_session_path %></li>
+              <li class="menu-item"><%= link_to "カートを見る", items_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
     </header>
     <div>
       <%= flash[:notice] %>
