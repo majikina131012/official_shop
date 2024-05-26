@@ -5,7 +5,9 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :cart_items, dependent: :destroy
-  has_many :orders
+  has_many :orders, dependent: :destroy
+  has_many :musics, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   
   validates :name, presence: true
   validates :name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }

@@ -3,12 +3,14 @@
 <table>
   <thead>
     <tr>
+      <th>投稿者</th>
       <th>曲名</th>
       <th>感想</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td><%= @music.customer.name %></td>
       <td><%= @music.title %></td>
       <td><%= @music.body %></td>
     </tr>

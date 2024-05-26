@@ -6,7 +6,8 @@ class Public::MusicsController < ApplicationController
 
   def create
     @music = Music.new(music_params)
-    if @music.save
+    @music.customer_id = current_customer.id
+    if @music.save!
       redirect_to music_path(@music.id)
     else
       render :new

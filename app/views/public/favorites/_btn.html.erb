@@ -1,0 +1,11 @@
+<% if music.favorited_by?(current_customer) %>
+  <%= link_to music_favorites_path(music.id), method: :delete, remote: true, data: {"turbolinks" => false} do %>
+    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+      <%= music.favorites.count %>
+  <% end %>
+<% else %>
+    <%= link_to music_favorites_path(music.id), method: :post, remote: true, data: {"turbolinks" => false} do %>
+      <i class="fas fa-heart" aria-hidden="true"></i>
+      <%= music.favorites.count %>
+    <% end %>
+<% end %>
