@@ -1,0 +1,20 @@
+<h1>曲感想詳細</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>投稿者</th>
+      <th>曲名</th>
+      <th>感想</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @music.customer.name %></td>
+      <td><%= @music.title %></td>
+      <td><%= @music.body %></td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to "編集", edit_music_path(@music.id) %>
+<%= link_to "削除", music_path(@music.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
