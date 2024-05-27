@@ -17,6 +17,10 @@
           <h1>ハリネズミ商店</h1>
         <% end %>
 
+        <button class="hamburger-menu">
+          <i class="fas fa-bars"></i>
+        </button>
+
         <nav class="nav">
           <ul class="menu-group">
             <% if customer_signed_in? %>
@@ -48,5 +52,14 @@
       <%= flash[:notice] %>
     </div>
     <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.hamburger-menu').click(function() {
+          $('.nav').toggleClass('open');
+        });
+      });
+    </script>
   </body>
 </html>
+
