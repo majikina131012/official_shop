@@ -1,5 +1,4 @@
-<h1>public/homes/top</h1>
-<h2>情報</h2>
+<h2>ニュース</h2>
 <table>
   <% @informations.each do |information| %>
     <tr>
@@ -14,6 +13,7 @@
 </table>
 <%= link_to "情報一覧", information_index_path %>
 <%= link_to items_path do %>
+※ここに情報一覧が表示される
   <h2>グッズ一覧</h2>
 <% end %>
 <table>
