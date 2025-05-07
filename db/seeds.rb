@@ -9,3 +9,20 @@ Admin.create!(
     email: "ryuma@1012",
     password: "111111"
     )
+
+Genre.create!(
+    name: "key_ring"
+)
+
+Information.create!(
+    title: "新商品入荷のお知らせ",
+    body: "10月から新しいTシャツが入荷しました！"
+)
+
+Item.create!(
+    genre_id: 1,
+    name: "キーホルダー",
+    description: "10月発売",
+    price_without_tax: "600",
+    status: 0
+)

@@ -9,6 +9,7 @@
       <th>カテゴリ</th>
       <th>税抜価格(税込)</th>
       <th>販売ステータス</th>
+      <th><th>
     </tr>
   </thead>
   <% @items.each do |item| %>
@@ -20,6 +21,7 @@
       <td><%= item.genre.name %></td>
       <td><%= item.price_without_tax %>(<%= item.with_tax_price %>)</td>
       <td><%= item.status_i18n %></td>
+      <td><%= link_to "商品詳細", item_path(item.id) %>
     </tr>
   </tbody>
   <% end %>
