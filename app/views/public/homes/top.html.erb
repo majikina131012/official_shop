@@ -32,7 +32,7 @@
   </tbody>
   <% end %>
 </table>
-<%= paginate @goods %>
+<%= paginate @goods, param_name: :goods_page %>
 <h2>CD</h2>
 <table>
   <thead>
@@ -54,4 +54,4 @@
   </tbody>
   <% end %>
 </table>
-<%= paginate @CDs %>
+<%= paginate @goods, param_name: :cds_page %>
