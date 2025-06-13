@@ -1,4 +1,4 @@
-<h2>ニュース</h2>
+<h2>NEWS</h2>
 <table>
   <% @informations.each do |information| %>
     <tr>
@@ -11,35 +11,44 @@
     </tr>
   <% end %>
 </table>
-<%= link_to "情報一覧", information_index_path %>
-<%= link_to items_path do %>
-※ここに情報一覧が表示される
-  <h2>グッズ一覧</h2>
-<% end %>
+<h2>GOODS</h2>
 <table>
   <thead>
     <tr>
-      <th>グッズ画像</th>
-      <th>グッズ名</th>
-      <th>グッズ説明</th>
-      <th>カテゴリ</th>
-      <th>税抜価格(税込)</th>
-      <th>販売ステータス</th>
       <th></th>
+      <th>グッズ名</th>
+      <th>価格(税込)</th>
+      <th>販売ステータス</th>
     </tr>
   </thead>
-  <% @items.each do |item| %>
+  <% @goods.each do |good| %>
   <tbody>
     <tr>
-      <td><%= image_tag item.get_item_image(100,100) %></td>
-      <td><%= item.name %></td>
-      <td><%= item.description %></td>
-      <td><%= item.genre.name %></td>
-      <td><%= item.price_without_tax %>(<%= item.with_tax_price %>)</td>
-      <td><%= item.status_i18n %></td>
-      <% if customer_signed_in? && item.status != 'sold_out' %>
-        <td><%= link_to "詳細", item_path(item.id) %></td>
-      <% end %>
+      <td><%= image_tag good.get_item_image(100,100) %></td>
+      <td><%= good.name %></td>
+      <td><%= good.price_without_tax %>(<%= good.with_tax_price %>)</td>
+      <td><%= good.status_i18n %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<h2>CD</h2>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>CD名</th>
+      <th>価格(税込)</th>
+      <th>販売ステータス</th>
+    </tr>
+  </thead>
+  <% @CDs.each do |cd| %>
+  <tbody>
+    <tr>
+      <td><%= image_tag cd.get_item_image(100,100) %></td>
+      <td><%= cd.name %></td>
+      <td><%= cd.price_without_tax %>(<%= cd.with_tax_price %>)</td>
+      <td><%= cd.status_i18n %></td>
     </tr>
   </tbody>
   <% end %>

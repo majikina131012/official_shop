@@ -7,22 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(
     email: "ryuma@1012",
-    password: "111111"
+    password: "aaaaaa"
     )
 
-Genre.create!(
-    name: "key_ring"
-)
+Genre.create!([
+    { name: "GOODS" },
+    { name: "CD" }
+    ])
 
-Information.create!(
-    title: "新商品入荷のお知らせ",
-    body: "10月から新しいTシャツが入荷しました！"
-)
-
-Item.create!(
-    genre_id: 1,
-    name: "キーホルダー",
-    description: "10月発売",
-    price_without_tax: "600",
-    status: 0
-)
+require "./db/data/item.rb"
+require "./db/data/information.rb"

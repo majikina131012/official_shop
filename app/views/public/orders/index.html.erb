@@ -21,7 +21,7 @@
       <td>〒<%= order.postal_code %><%= order.address %><%= order.name %></td>
       <td>
         <% order.items.each do |item| %>
-  				<p><%= item.name %></p>
+  				<%= item.name %>
   			<% end %>
       </td>
       <td><%= order.billing_amount %>円</td>
